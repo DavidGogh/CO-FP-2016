@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1272,         52]
-NotebookOptionsPosition[       950,         35]
-NotebookOutlinePosition[      1308,         51]
-CellTagsIndexPosition[      1265,         48]
+NotebookDataLength[      2138,         85]
+NotebookOptionsPosition[      1602,         60]
+NotebookOutlinePosition[      1961,         76]
+CellTagsIndexPosition[      1918,         73]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,10 +31,35 @@ Cell[BoxData[
 
 Cell[BoxData["1.3116687192935`*^11"], "Output",
  CellChangeTimes->{3.674123131812007*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"28603052934", "+", "9251386785"}], ")"}], "*", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", 
+    RowBox[{"300", "*", "0.00509"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.674127519218772*^9, 3.67412754986027*^9}}],
+
+Cell[BoxData["9.565816916991301`*^10"], "Output",
+ CellChangeTimes->{3.674127551118642*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"1.3116687192935`*^11", "/", "%"}]], "Input",
+ CellChangeTimes->{{3.674127564897547*^9, 3.674127574797552*^9}}],
+
+Cell[BoxData["1.371204080817861`"], "Output",
+ CellChangeTimes->{3.674127575536195*^9}]
 }, Open  ]]
 },
 WindowSize->{808, 651},
-WindowMargins->{{Automatic, -125}, {-94, Automatic}},
+WindowMargins->{{Automatic, -125}, {-203, Automatic}},
 FrontEndVersion->"10.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 23, \
 2015)",
 StyleDefinitions->"Default.nb"
@@ -52,11 +77,18 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 262, 7, 28, "Input"],
-Cell[845, 31, 89, 1, 66, "Output"]
+Cell[845, 31, 89, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[971, 37, 260, 7, 28, "Input"],
+Cell[1234, 46, 91, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1362, 52, 134, 2, 28, "Input"],
+Cell[1499, 56, 87, 1, 28, "Output"]
 }, Open  ]]
 }
 ]
 *)
 
 (* End of internal cache information *)
-

@@ -26,6 +26,3 @@ run:
 run-host: 
 	./$(TARGET-HOST)
 	./$(CHECKER)
-
-
-	
