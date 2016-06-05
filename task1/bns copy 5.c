@@ -212,7 +212,7 @@ void cross2DConv()
 										weight -= filterPix;
 
 									idx[1]++;
-									filterPix=filters[filIdx][k][l+1];
+									filterPix=filters[filIdx][k][l+2];
 									if((idx[1] >= 0) && (idx[2] >= 0) && 
 										 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
 										pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
