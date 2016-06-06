@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2138,         85]
-NotebookOptionsPosition[      1602,         60]
-NotebookOutlinePosition[      1961,         76]
-CellTagsIndexPosition[      1918,         73]
+NotebookDataLength[      3230,        122]
+NotebookOptionsPosition[      2475,         90]
+NotebookOutlinePosition[      2834,        106]
+CellTagsIndexPosition[      2791,        103]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -56,7 +56,37 @@ Cell[BoxData[
 
 Cell[BoxData["1.371204080817861`"], "Output",
  CellChangeTimes->{3.674127575536195*^9}]
-}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", "=", "5271922"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "1558999"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"c", "=", "0.408"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"a", "+", "b"}], ")"}], "*", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", 
+    RowBox[{"300", "*", 
+     RowBox[{"c", "/", "100"}]}]}], ")"}]}]}], "Input",
+ CellChangeTimes->{{3.674146574757627*^9, 3.674146701711626*^9}}],
+
+Cell[BoxData["0.408`"], "Output",
+ CellChangeTimes->{3.6741466299623613`*^9, 3.674146667749094*^9, 
+  3.6741467027103243`*^9}],
+
+Cell[BoxData["1.5191968303999998`*^7"], "Output",
+ CellChangeTimes->{3.6741466299623613`*^9, 3.674146667749094*^9, 
+  3.674146702721177*^9}]
+}, Open  ]],
+
+Cell[BoxData["1.5424119071`*^7"], "Input"],
+
+Cell[BoxData["1.5257017159999998`*^7"], "Input"]
 },
 WindowSize->{808, 651},
 WindowMargins->{{Automatic, -125}, {-203, Automatic}},
@@ -86,7 +116,14 @@ Cell[1234, 46, 91, 1, 32, "Output"]
 Cell[CellGroupData[{
 Cell[1362, 52, 134, 2, 28, "Input"],
 Cell[1499, 56, 87, 1, 28, "Output"]
-}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1623, 62, 468, 13, 80, "Input"],
+Cell[2094, 77, 126, 2, 28, "Output"],
+Cell[2223, 81, 140, 2, 66, "Output"]
+}, Open  ]],
+Cell[2378, 86, 42, 0, 28, "Input"],
+Cell[2423, 88, 48, 0, 28, "Input"]
 }
 ]
 *)

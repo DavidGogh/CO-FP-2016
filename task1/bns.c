@@ -29,9 +29,9 @@ int filters[numFilter][kernSize][kernSize] = {
 int weights[numFilter] = {9993, -128};
 
 char *inputNames[numInput] = {
-	"Images/1.bmp",
-	"Images/1.bmp",
-	"Images/1.bmp"
+	"Images/lake.bmp",
+	"Images/maple.bmp",
+	"Images/tree.bmp"
 };
 
 char *outputNames[numFilter][numInput] = {
@@ -167,145 +167,68 @@ void cross2DConv()
 	int filIdx, inIdx;
 	int weight, kernLen;
 	int rgb[3], idx[3];
-	int idxCnt;
 	int filterPix;
+	int idxCnt;
 	Pixel *pixelPtr;
 
 	kernLen = kernSize/2;
-	for(inIdx = 0; inIdx < numInput; inIdx++){
-			for(filIdx = 0; filIdx < numFilter; filIdx++){
-				for(i = 0; i < imgWidth; i++){
-					for(j = 0; j < imgHeight; j++){
+	for(filIdx = 0; filIdx < numFilter; filIdx++){
+		weight = weights[filIdx];
+		for(inIdx = 0; inIdx < numInput; inIdx++){
+			for(i = 0; i < imgWidth; i++){
+				for(j = 0; j < imgHeight; j++){
 
-								rgb[0] = 0; rgb[1] = 0; rgb[2] = 0;
-								weight = weights[filIdx];
-								idx[0] = getIdx(j, i - j);
-								for(k = 0; k < kernSize; k++){
+							rgb[0] = 0; rgb[1] = 0; rgb[2] = 0;
+							
+							idx[0] = getIdx(j, i - j);
+							for(k = 0; k < kernSize; k++){
+								idx[2] = idx[0]/imgWidth - kernLen + k;
+								idx[1] = idx[0]%imgWidth - kernLen;
+								idxCnt=getIdx(idx[2], idx[1]);
+								for(l = 0; l < kernSize; l+=3){
+									
+									
+									filterPix=filters[filIdx][k][l];
+									if((idx[1] >= 0) && (idx[2] >= 0) && 
+										 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
+										pixelPtr = (Pixel *) &data[inIdx][idxCnt++ * sizeof(Pixel)];
+										rgb[0] += filterPix * (pixelPtr->R - 0);
+										rgb[1] += filterPix * (pixelPtr->G - 0);
+										rgb[2] += filterPix * (pixelPtr->B - 0);
+									}                               
+									else                            
+										weight -= filterPix;
+									idx[1]++;
+									
+									filterPix=filters[filIdx][k][l+1];
+									if((idx[1] >= 0) && (idx[2] >= 0) && 
+										 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
+										pixelPtr = (Pixel *) &data[inIdx][idxCnt++ * sizeof(Pixel)];
+										rgb[0] += filterPix * (pixelPtr->R - 0);
+										rgb[1] += filterPix * (pixelPtr->G - 0);
+										rgb[2] += filterPix * (pixelPtr->B - 0);
+									}                               
+									else                            
+										weight -= filterPix;
 
-									idx[2] = idx[0]/imgWidth - kernLen +k;
-
-							idx[1] = idx[0]%imgWidth - kernLen;
-							idxCnt=getIdx(idx[2], idx[1]);
-							filterPix=filters[filIdx][k][0];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][1];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][2];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][3];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][4];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][5];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][6];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][7];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-
-							idx[1]++;
-							filterPix=filters[filIdx][k][8];
-							if((idx[1] >= 0) && (idx[2] >= 0) && 
-								 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
-								pixelPtr = (Pixel *) &data[inIdx][++idxCnt* sizeof(Pixel)];
-								
-								rgb[0] += filterPix * (pixelPtr->R - 0);
-								rgb[1] += filterPix * (pixelPtr->G - 0);
-								rgb[2] += filterPix * (pixelPtr->B - 0);
-							}                               
-							else                            
-								weight -= filterPix;
-								}		
-								checkPixelValue(rgb, weight);
-								setPixel(results[filIdx][inIdx], idx[0], rgb);
-					}
+									idx[1]++;
+									filterPix=filters[filIdx][k][l+2];
+									if((idx[1] >= 0) && (idx[2] >= 0) && 
+										 (idx[1] < imgWidth) && (idx[2] < imgHeight)){
+										pixelPtr = (Pixel *) &data[inIdx][idxCnt++ * sizeof(Pixel)];
+										rgb[0] += filterPix * (pixelPtr->R - 0);
+										rgb[1] += filterPix * (pixelPtr->G - 0);
+										rgb[2] += filterPix * (pixelPtr->B - 0);
+									}                               
+									else                            
+										weight -= filterPix;
+									idx[1]++;
+								}
+							}		
+							checkPixelValue(rgb, weight);
+							setPixel(results[filIdx][inIdx], idx[0], rgb);
 				}
+			}
 			}
 	}
 

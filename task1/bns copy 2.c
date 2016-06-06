@@ -29,9 +29,9 @@ int filters[numFilter][kernSize][kernSize] = {
 int weights[numFilter] = {9993, -128};
 
 char *inputNames[numInput] = {
-	"Images/1.bmp",
-	"Images/1.bmp",
-	"Images/1.bmp"
+	"Images/lake.bmp",
+	"Images/maple.bmp",
+	"Images/tree.bmp"
 };
 
 char *outputNames[numFilter][numInput] = {

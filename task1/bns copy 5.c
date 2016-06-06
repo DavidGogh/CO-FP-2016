@@ -173,13 +173,13 @@ void cross2DConv()
 
 	kernLen = kernSize/2;
 	for(filIdx = 0; filIdx < numFilter; filIdx++){
-		weight = weights[filIdx];
+		
 		for(inIdx = 0; inIdx < numInput; inIdx++){
 			for(i = 0; i < imgWidth; i++){
 				for(j = 0; j < imgHeight; j++){
 
 							rgb[0] = 0; rgb[1] = 0; rgb[2] = 0;
-							
+							weight = weights[filIdx];
 							idx[0] = getIdx(j, i - j);
 							for(k = 0; k < kernSize; k++){
 								idx[2] = idx[0]/imgWidth - kernLen + k;
