@@ -10,9 +10,22 @@ In Task 1.1, the main focus is on program modification to avoid wasted memory ac
 
 ### 1.1 Starter
 
-First, the origin code is executed : insert result For a starter, the complicated twoloops are merged and reordered. Reordering the index exploits spatial locality of imageconvolution. A slight improvement is achieved : insert result Execution of program inspike is quite time-consuming, so reduced size ( 32x32 ) of origin images ( 1280x960 ) areused then to test each modification.
+First, the origin code is executed : insert result For a starter, the complicated twoloops are merged and reordered. Reordering the index exploits spatial locality of imageconvolution. A slight improvement is achieved :
+
+| instance  | AccessTime  |    Ratio    |
+| :-------: | :---------: | :---------: |
+|  Origin   | 2.29113E+11 |      1      |
+| MergeLoop | 2.16862E+11 | 1.056491536 |
+
+Execution of program inspike is quite time-consuming, so reduced size ( 32x32 ) of origin images ( 1280x960 ) areused then to test each modification.
 
 *Note. In the following tests, program is first checked on origin images running on host andthen tested with smaller images running on spike to get memory access information.*
+
+ 
+
+ 
+
+ 
 
 ### 1.2 Tests
 
@@ -71,11 +84,13 @@ As for the extent of loop unrolling :
 
 ### 1.4 Final Result
 
-Using the best modification ( Specified ), we know that unroll main loops should be somewhat fruitful, but we are not sure to what extent should we unroll them since that there is drawback in instruction misses when loops are unrolled. Unsure about the balancing point, we simply picked the best result from the three tests we carried out, which is to completely unroll the nine loops of the deepest loop. 
+Using the best modification ( Specified ), we know that unroll main loops should be somewhat fruitful, but we are not sure to what extent should we unroll them since that there is drawback in instruction misses when loops are unrolled. Unsure about the balancing point, we simply picked the best result from the three tests (NoUnrolling, Unrolled threefold, All Unrolled) we carried out, which is to completely unroll the nine loops of the deepest loop. 
 
-| Instance             | D-AccessTime | I-AccessTime | AccessTime  | RatioWithOrigin |
-| -------------------- | ------------ | ------------ | ----------- | --------------- |
-| UnrollAll(Specified) | 77276835012  | 41389473187  | 1.18666E+11 | 1.930734356     |
+| Instance              | AccessTime  | RatioOfImprovement |
+| --------------------- | ----------- | ------------------ |
+| UnrollAll(Specified)* | 1.18666E+11 | 1.930734356        |
+| Unroll3f(Specified)   | 1.26231E+11 | 1.815035347        |
+| NotUnroll(Specified)  | 1.29403E+11 | 1.77053618         |
 
 The best result is full unrolling of the deepest loop : ![BestTaskOne](BestTaskOne.png)
 
