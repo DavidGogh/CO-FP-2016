@@ -38,6 +38,7 @@ class cache_sim_t
   static const uint64_t REPLACE = 1ULL << 61;
   
   virtual uint64_t* check_tag(uint64_t addr);
+  virtual size_t check_used(uint64_t addr);
   virtual uint64_t victimize(uint64_t addr);
 
   lfsr_t lfsr;

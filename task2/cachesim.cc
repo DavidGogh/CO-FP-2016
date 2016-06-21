@@ -108,22 +108,28 @@ uint64_t* cache_sim_t::check_tag(uint64_t addr)
   size_t tag = (addr >> idx_shift) | VALID;
 
   for (size_t i = 0; i < ways; i++)
-    if (tag == (tags[idx*ways + i] & ~DIRTY))
+    if (tag == (tags[idx*ways + i] & ~(DIRTY | REPLACE)))
       return &tags[idx*ways + i];
 
   return NULL;
 }
 
-uint64_t cache_sim_t::victimize(uint64_t addr)
+size_t cache_sim_t::check_used(uint64_t addr)
 {
   size_t idx = (addr >> idx_shift) & (sets-1);
-  size_t way = lfsr.next() % ways;
-  for (size_t i = 0; i < ways; i++){
-  	if ((tags[idx*ways + i] & REPLACE) != REPLACE){
-      		way = i;
-      		break;
-    	}
-  } 
+  size_t tag = (addr >> idx_shift) | REPLACE;
+
+  for (size_t i = 0; i < ways; i++)
+    if (tag == (tags[idx*ways + i] & ~(DIRTY | VALID)))
+      return i;
+
+  return lfsr.next() % ways;
+}
+
+uint64_t cache_sim_t::cache_sim_t::victimize(uint64_t addr)
+{
+  size_t idx = (addr >> idx_shift) & (sets-1);
+  size_t way = check_used(addr);
   uint64_t victim = tags[idx*ways + way];
   tags[idx*ways + way] = (addr >> idx_shift) | VALID;
   return victim;
@@ -152,7 +158,7 @@ void cache_sim_t::access(uint64_t addr, size_t bytes, bool store)
 
   if ((victim & (VALID | DIRTY)) == (VALID | DIRTY))
   {
-    uint64_t dirty_addr = (victim & ~(VALID | DIRTY)) << idx_shift;
+    uint64_t dirty_addr = (victim & ~(VALID | DIRTY | REPLACE)) << idx_shift;
     if (miss_handler)
       miss_handler->access(dirty_addr, linesz, true);
     writebacks++;
@@ -184,7 +190,7 @@ uint64_t fa_cache_sim_t::victimize(uint64_t addr)
   if (tags.size() == ways)
   {
     auto it = tags.begin();
-    std::advance(it, lfsr.next() % ways);
+    std::advance(it, check_used(addr));
     old_tag = it->second;
     tags.erase(it);
   }
