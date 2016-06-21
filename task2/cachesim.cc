@@ -118,12 +118,6 @@ uint64_t cache_sim_t::victimize(uint64_t addr)
 {
   size_t idx = (addr >> idx_shift) & (sets-1);
   size_t way = lfsr.next() % ways;
-  for (size_t i = 0; i < ways; i++){
-  	if ((tags[idx*ways + i] & (REPLACE)) != REPLACE){
-      way = i;
-      i = ways;
-    }
-  } 
   uint64_t victim = tags[idx*ways + way];
   tags[idx*ways + way] = (addr >> idx_shift) | VALID;
   return victim;
@@ -139,7 +133,6 @@ void cache_sim_t::access(uint64_t addr, size_t bytes, bool store)
   uint64_t* hit_way = check_tag(addr);
   if (likely(hit_way != NULL))
   {
-  	*hit_way |= REPLACE;
     if (store)
       *hit_way |= DIRTY;
     return;
@@ -164,8 +157,6 @@ void cache_sim_t::access(uint64_t addr, size_t bytes, bool store)
   if (store)
     *check_tag(addr) |= DIRTY;
 }
-
-
 
 fa_cache_sim_t::fa_cache_sim_t(size_t ways, size_t linesz, const char* name)
   : cache_sim_t(1, ways, linesz, name)
