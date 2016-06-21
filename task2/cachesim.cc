@@ -119,10 +119,10 @@ uint64_t cache_sim_t::victimize(uint64_t addr)
   size_t idx = (addr >> idx_shift) & (sets-1);
   size_t way = lfsr.next() % ways;
   for (size_t i = 0; i < ways; i++){
-  	if ((tags[idx*ways + i] & (REPLACE)) != REPLACE){
-      way = i;
-      i = ways;
-    }
+  	if ((tags[idx*ways + i] & REPLACE) != REPLACE){
+      		way = i;
+      		break;
+    	}
   } 
   uint64_t victim = tags[idx*ways + way];
   tags[idx*ways + way] = (addr >> idx_shift) | VALID;
