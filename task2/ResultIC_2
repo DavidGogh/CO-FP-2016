@@ -1,0 +1,758 @@
+for i in 1 2 4 8 16 32 64 128 256 ; do \
+	for j in 4 8 16 32 64 128 256 ; do \
+		echo $i ; \
+		echo $j ; \
+		echo $((4096/$i/$j)) ; \
+		../riscv/bin/spike --ic=$i:$j:$((4096/$i/$j)) --dc=64:1:64 pk bns-riscv; \
+	done ; \
+done
+1
+4
+1024
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16414783
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.126%
+1
+8
+512
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           4054
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             0.012%
+1
+16
+256
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           3390
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             0.010%
+1
+32
+128
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           3772
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             0.012%
+1
+64
+64
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           4520
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             0.014%
+1
+128
+32
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           5975
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             0.018%
+1
+256
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           9114
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             0.028%
+2
+4
+512
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16408408
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.107%
+2
+8
+256
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16420992
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.145%
+2
+16
+128
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16441059
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.206%
+2
+32
+64
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16505339
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.403%
+2
+64
+32
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16564862
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.584%
+2
+128
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16676971
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.927%
+2
+256
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16687771
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.960%
+4
+4
+256
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16413669
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.123%
+4
+8
+128
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16440624
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.205%
+4
+16
+64
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16498701
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.382%
+4
+32
+32
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16559621
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.568%
+4
+64
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16671664
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.911%
+4
+128
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16682470
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.944%
+4
+256
+4
+8
+4
+128
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16432460
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.180%
+8
+8
+64
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16497622
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.379%
+8
+16
+32
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16552816
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.548%
+8
+32
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16666498
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.895%
+8
+64
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16672797
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.914%
+8
+128
+4
+8
+256
+2
+16
+4
+64
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16491958
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.362%
+16
+8
+32
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16549711
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.538%
+16
+16
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16662071
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.881%
+16
+32
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16672050
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.912%
+16
+64
+4
+16
+128
+2
+16
+256
+1
+32
+4
+32
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16540584
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.510%
+32
+8
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16661076
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.878%
+32
+16
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16667609
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.898%
+32
+32
+4
+32
+64
+2
+32
+128
+1
+32
+256
+0
+64
+4
+16
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16649409
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.843%
+64
+8
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16665691
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.892%
+64
+16
+4
+64
+32
+2
+64
+64
+1
+64
+128
+0
+64
+256
+0
+128
+4
+8
+D$ Bytes Read:            50828196
+D$ Bytes Written:         16706215
+D$ Read Accesses:         11732330
+D$ Write Accesses:        3638510
+D$ Read Misses:           6082776
+D$ Write Misses:          1664823
+D$ Writebacks:            3565542
+D$ Miss Rate:             50.405%
+I$ Bytes Read:            130987732
+I$ Bytes Written:         0
+I$ Read Accesses:         32746933
+I$ Write Accesses:        0
+I$ Read Misses:           16654313
+I$ Write Misses:          0
+I$ Writebacks:            0
+I$ Miss Rate:             50.858%
+128
+8
+4
+128
+16
+2
+128
+32
+1
+128
+64
+0
+128
+128
+0
+128
+256
+0
+256
+4
+4
+256
+8
+2
+256
+16
+1
+256
+32
+0
+256
+64
+0
+256
+128
+0
+256
+256
+0
+Makefile:35: recipe for target 'run-testI' failed
